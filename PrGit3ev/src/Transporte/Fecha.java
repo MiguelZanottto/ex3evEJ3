@@ -1,10 +1,12 @@
 package Transporte;
+
 import java.util.Calendar;
 import java.util.Date;
 
 public class Fecha {
-  int a�o, mes, dia, hora, minuto;
-  Fecha() {
+	int a�o,mes,dia,hora,minuto;
+
+	Fecha() {
 		 Calendar calendario=Calendar.getInstance();  //Calendar: clase abstracta
 		 Date fecha=calendario.getTime();
 		 calendario.setTime(fecha);
@@ -15,7 +17,13 @@ public class Fecha {
 		 minuto=calendario.get(Calendar.MINUTE);
 	}
 
-  	boolean menor90minutos(Fecha fPosterior) {
+	Fecha(int a�o , int mes, int dia){
+	  this.a�o = a�o;
+	  this.mes = mes;
+	  this.dia = dia;
+  }
+
+	boolean menor90minutos(Fecha fPosterior) {
   		boolean ok=false;
   		int auxh=hora*60+minuto+90;
   		int auxhPost= fPosterior.hora*60+fPosterior.minuto;
@@ -26,6 +34,7 @@ public class Fecha {
   			ok=true;
   		return ok;	
   	}
+
 	public Fecha(int a�o, int mes, int dia, int hora, int minuto) {
 	  this.a�o = a�o;
 	  this.mes = mes;
